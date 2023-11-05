@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Tic Tac Toe</title>
+		<link href="style.css" rel="stylesheet" type="text/css" />
+		<link rel="shortcut icon" href="assets/t.png" type="image/png" />
+		<script src="https://util.tinymooshmallow.repl.co/util.js"></script>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	</head>
+
+	<body>
+		<div class="cc">
+			<div class="container">
+				<header>
+					<h1>Tic Tac Toe</h1>
+				</header>
+				<div class="buttons">
+					<button
+						onclick="play('ai')"
+						class="comp"
+						title="*not unbeatable, but REAL WORKING thinking"
+					>
+						Against Computer
+					</button>
+					<button onclick="play('human')" class="hum" title="*same device">
+						Multiplayer
+					</button>
+				</div>
+				<div class="endmsg"><span id="end-msg"></span></div>
+
+				<div class="message"><span id="currentPlayer">X</span>'s turn</div>
+
+				<div class="gameboard" id="gameboard">
+					<div id="0" class="cell"></div>
+					<div id="1" class="cell"></div>
+					<div id="2" class="cell"></div>
+					<div id="3" class="cell"></div>
+					<div id="4" class="cell"></div>
+					<div id="5" class="cell"></div>
+					<div id="6" class="cell"></div>
+					<div id="7" class="cell"></div>
+					<div id="8" class="cell"></div>
+				</div>
+			</div>
+		</div>
+		<div class="copy" onclick="window.open('https://h4shtag.pages.dev')">
+			<h2>Made by #, You are on my site right now!</h2>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>
