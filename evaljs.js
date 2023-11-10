@@ -11,9 +11,9 @@ window.addEventListener("keyup", (event) => {
 			let evaledCommand = eval(command);
 			alert(evaledCommand);
 			if (copy) {
+				document.documentElement.focus();
 				navigator.clipboard.writeText(evaledCommand);
 			}
-			document.documentElement.focus();
 		} catch (err) {
 			alert(err);
 		}
