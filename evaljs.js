@@ -5,20 +5,8 @@ window.addEventListener("keyup", (event) => {
 		focusedclipboardwritetext = false;
 		let command = prompt("Evaluate Command:");
 		try {
-			let copy = false;
-			if (command != command.replace("+cpy", "")) {
-				command = command.replace("+cpy", "");
-				copy = true;
-			}
 			let evaledCommand = eval(command);
 			alert(evaledCommand);
-			if (copy) {
-				document.addEventListener("focus", () => {
-					focusedclipboardwritetext = true;
-					navigator.clipboard.writeText(evaledCommand);
-					document.removeEventListener("focus", copyy);
-				});
-			}
 		} catch (err) {
 			alert(err);
 		}
