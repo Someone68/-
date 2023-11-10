@@ -9,10 +9,11 @@ window.addEventListener("keyup", (event) => {
 				copy = true;
 			}
 			let evaledCommand = eval(command);
+			alert(evaledCommand);
 			if (copy) {
 				navigator.clipboard.writeText(evaledCommand);
 			}
-			alert(evaledCommand);
+			document.documentElement.focus();
 		} catch (err) {
 			alert(err);
 		}
