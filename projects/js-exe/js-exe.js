@@ -1,4 +1,6 @@
 /// script_execution.js
+/// alias jseval.js
+/// world ISOLATED
 window.addEventListener("keyup", (event) => {
 	if (event.ctrlKey && event.code === "Backquote") {
 		let command = prompt("Evaluate Command:");
@@ -12,36 +14,24 @@ window.addEventListener("keyup", (event) => {
 });
 
 /// firebug_lite_devtools.js
-
+/// alias fblite.js
+/// world ISOLATED
 window.addEventListener("keyup", (event) => {
-	function loadScript() {
-		let firebugscript = document.createElement("script");
-		firebugscript.src =
-			"https://h4shtag.pages.dev/projects/js-exe/firebug-lite-debug.js";
-
-		firebugscript.classList.add("firebug-script");
-		if (document.head) {
-			document.head.append(firebugscript);
-		}
-	}
-	if (event.ctrlKey && event.altKey && event.code === "Backslash") {
-		if (document.querySelector(".firebug-script")) {
-			window.Firebug.ConsolePanel();
-		} else {
-			loadScript();
-		}
-	}
-
-	function openFirebug(firebug) {
-		try {
-			console.log(arguments);
-			if (window.Firebug.version) {
-				firebug.consolePanel();
+	if (event.ctrlKey && event.altKey && event.key === "]") {
+		let firebug = document.createElement("script");
+		firebug.setAttribute(
+			"src",
+			"https://h4shtag.pages.dev/projects/js-exe/firebug-lite-debug.js"
+		);
+		document.body.appendChild(firebug);
+		function startfirebug() {
+			if (window.Firebug) {
+				window.Firebug.ConsolePanel();
 			} else {
-				setTimeout(openFirebug);
+				setTimeout(startfirebug);
 			}
-		} catch (err) {
-			setTimeout(openFirebug);
 		}
+		startfirebug();
+		void firebug;
 	}
 });
