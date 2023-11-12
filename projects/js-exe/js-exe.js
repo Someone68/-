@@ -12,25 +12,23 @@ window.addEventListener("keyup", (event) => {
 });
 
 /// firebug_lite_devtools.js
-function loadScript(url, callback) {
-	var script = document.createElement("script");
-	script.src = url;
-	script.classList.add("firebug-script");
-	script.onload = () => {
-		callback(script);
-	};
-	document.head.appendChild(script);
-}
 
 window.addEventListener("keyup", (event) => {
+	function loadScript() {
+		let firebugscript = document.createElement("script");
+		firebugscript.src =
+			"https://h4shtag.pages.dev/projects/js-exe/firebug-lite-debug.js";
+
+		firebugscript.classList.add("firebug-script");
+		if (document.head) {
+			document.head.append(firebugscript);
+		}
+	}
 	if (event.ctrlKey && event.altKey && event.code === "Backslash") {
 		if (document.querySelector(".firebug-script")) {
 			window.Firebug.ConsolePanel();
 		} else {
-			loadScript(
-				"https://h4shtag.pages.dev/projects/js-exe/firebug-lite-debug.js",
-				openFirebug
-			);
+			loadScript();
 		}
 	}
 
