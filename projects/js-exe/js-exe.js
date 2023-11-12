@@ -27,7 +27,10 @@ window.addEventListener("keyup", (event) => {
 		if (document.querySelector(".firebug-script")) {
 			window.Firebug.ConsolePanel();
 		} else {
-			loadScript("https://jsexe.pages.dev/firebug-lite-debug.js", openFirebug);
+			loadScript(
+				"https://h4shtag.pages.dev/projects/js-exe/firebug-lite-debug.js",
+				openFirebug
+			);
 		}
 	}
 
