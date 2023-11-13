@@ -61,3 +61,18 @@ window.addEventListener("keyup", (event) => {
 		}
 	}
 });
+
+/// cloak_page.js
+/// alias cpage.js
+/// world ISOLATED
+window.addEventListener("keyup", (event) => {
+	if (event.ctrlKey && event.altKey && event.key === "c") {
+		let url = prompt("Cloak URL:");
+		let win = window.open();
+		let iframe = win.document.createElement("iframe");
+		iframe.style =
+			"position:fixed;width:100vw;height:100vh;top:0px;left:0px;right:0px;bottom:0px;z-index:2147483647;background-color:white;border:none;";
+		iframe.src = url;
+		win.document.body.appendChild(iframe);
+	}
+});
